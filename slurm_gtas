@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Params for sbatch
+#SBATCH --partition=short-serial
+#SBATCH --job-name=gtas_home
+#SBATCH -o %j_gtas.out
+#SBATCH -e %j_gtas.err
+#SBATCH --time=00:30:00
+#SBATCH --array=1-35
+
+# Set environment 
+module add jaspy
+cd /home/users/tommatthews/Homeostasis/
+
+# Launch
+bash glob_mean.sh ${SLURM_ARRAY_TASK_ID}
+
+
+
+
+

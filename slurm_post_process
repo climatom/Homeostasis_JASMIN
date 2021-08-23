@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Params for sbatch
+#SBATCH --partition=short-serial
+#SBATCH --job-name=cmip6_process
+#SBATCH -o %j_process_cmip6.out
+#SBATCH -e %j_process_cmip6.err
+#SBATCH --time=03:00:00
+
+# Set environment 
+module add jaspy
+cd /home/users/tommatthews/Homeostasis/
+
+# Launch
+python processCMIP6.py
+
+
+
+
+
